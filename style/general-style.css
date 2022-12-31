@@ -1,0 +1,126 @@
+:root {
+    --magenta: rgb(255, 60, 138);
+    --yellow: rgb(235, 223, 0);
+    --red: rgba(255, 0, 0, 0.812);
+    --light-blue: rgb(201, 247, 255);
+    --dark-blue: rgb(22, 66, 178);
+    --purple: rgb(103, 0, 144);
+    --yellow-light: rgb(255, 255, 195);
+    --green-light: rgb(103, 178, 157);
+    --green: rgb(0, 141, 0);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    background-color: var(--green-light);
+}
+
+.cat-section {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    top: 60px;
+    left: 390px;
+    transition: all 0.6s ease-out;
+}
+
+.allow-drop {
+    border: solid rgb(255, 255, 255) 2px;
+    animation: flicker 0.6s steps(1, end) infinite;
+}
+
+@keyframes flicker {
+    50% {
+        opacity: 0;
+    }
+}
+
+.card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--yellow-light);
+    z-index: 1;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.card-text-container {
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    background-color: white;
+    padding: 10px;
+}
+
+.card-text-container>p {
+    white-space: pre-line;
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 1.7rem;
+}
+
+.card-button {
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: var(--purple);
+    color: white;
+    font-size: 1.3rem;
+    border: none;
+}
+
+.card-button:hover {
+    opacity: 90%;
+}
+
+.card-move-out {
+    animation: card-move-out 1s cubic-bezier(0.47, -0.1, 0, 0.99) forwards;
+}
+
+.card-move-in {
+    animation-delay: 3s;
+    animation: card-move-in 1s ease;
+}
+
+.scale {
+    transform: scale(1.1);
+}
+
+@keyframes card-move-out {
+    0% {
+        top: 0;
+    }
+
+    60% {
+        top: 20px;
+    }
+
+    100% {
+        top: -100vh;
+    }
+}
+
+@keyframes card-move-in {
+    0% {
+        top: -100vh;
+    }
+
+    60% {
+        top: 20px;
+    }
+
+    100% {
+        top: 0;
+    }
+}
